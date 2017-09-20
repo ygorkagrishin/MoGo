@@ -1,0 +1,75 @@
+$white: #fff;
+$black:#333333;
+$grey: #999999;
+$blue: #95e1d3;
+$yellow: #fce38a;
+
+$kaushan: 'kaushan_scriptregular';
+$montserratBold: 'montserratbold';
+$montserratLight: 'montserratlight';
+$montserratRegular: 'montserratregular';
+$robotoLight: 'robotolight_italic';
+
+* {
+    box-sizing: border-box;
+    color: $black;
+}
+
+html, body {
+    height: 100%;
+    font-family: $montserratRegular;
+    @media screen and ( max-width: 1024px ) {
+        font-size: 15px;
+    }
+    @media screen and ( max-width: 768px ) {
+        font-size: 14px;
+    }
+    @media screen and ( max-width: 480px ) {
+        font-size: 12px;
+    }
+}
+
+.section {
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 95%;
+    max-width: 75rem;
+    height: 100%;
+    min-height: 100%;
+    margin: auto;
+}
+
+.wrap__cont {
+    max-width: 100%;
+    min-height: 40.625rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: $montserratBold;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+    }
+}
+
+a {
+    text-decoration: none;
+}
