@@ -1,11 +1,24 @@
 .header {
+max-width: 64rem;
+margin: auto;
 text-align: center;    
-    .header__undertitle {
-        font: 1.5rem $kaushan;
+    .header__under-title {
+        font-family: $kaushan; font-size: 1.5rem;
+        padding: 1.5rem 0;
     }
     .header__title {
-        font: 1.875rem $montserratBold;
+        font-family: $montserratBold; font-size: 1.875rem;
         text-transform: uppercase;
+        &:after {
+            content: "";
+            display: block;
+            width: 3.75rem; height: .1875rem;
+            margin: 2rem auto;
+            background-color: $red;
+        }
     }
-    
+    .header__text {
+        font-size: .875rem; line-height: 1.5rem;
+        color: $grey;
+    }
 }

@@ -1,0 +1,69 @@
+.say {
+    position: relative;
+    background: url( '../image/say/Layer-53.png' ) no-repeat center / cover;
+    z-index: 0;
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba( $white,.9 );
+        z-index: -1;
+    }
+}
+
+.say__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.say-list__item {
+    display: flex;
+    flex-basis: 48%;
+    margin-bottom: 5.75rem;
+    @media screen and ( max-width: 480px ) {
+        flex-basis: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+.say-item__pic {
+    width: 6.6875rem; height: 6.6875rem;
+}
+
+.say-pic__wrap {
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.say-item__cont {
+    padding: 0 2rem;
+}
+
+.say-item__header {
+    &:after {
+        content: "";
+        display: block;
+        width: 3.75rem; height: .1875rem;
+        margin: 1rem 0;
+        background-color: $red;
+    }
+}
+
+.say-item__title {
+    margin-bottom: .5rem;
+    font-family: $montserratRegular; font-size: .875rem;
+    text-transform: uppercase;
+}
+
+.say-item__subtitle {
+    font-family: $robotoLight; font-size: .875rem;
+}
+
+.say-item__body {
+    font-size: .875rem; line-height: 1.5rem;
+    color: $grey;
+}

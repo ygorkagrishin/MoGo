@@ -2,6 +2,7 @@ $white: #fff;
 $black:#333333;
 $grey: #999999;
 $blue: #95e1d3;
+$red: #f38181;
 $yellow: #fce38a;
 
 $kaushan: 'kaushan_scriptregular';
@@ -31,7 +32,6 @@ html, body {
 
 .section {
     display: flex;
-    height: 100%;
     min-height: 100%;
 }
 
@@ -42,7 +42,6 @@ html, body {
     position: relative;
     width: 95%;
     max-width: 75rem;
-    height: 100%;
     min-height: 100%;
     margin: auto;
 }

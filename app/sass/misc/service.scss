@@ -1,0 +1,84 @@
+.serv__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.serv__list {
+    position: relative;
+    padding: 2rem 0;
+    @media screen and ( max-width: 768px ) {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 24%; left: 0;
+            display: block;
+            width: 100%; height: 1px;
+            background-color: rgba( $grey,.2 );
+            @media screen and ( max-width: 375px ) {
+                display: none;
+            }
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 36%; left: 0;
+        display: block;
+        width: 100%; height: 1px;
+        background-color: rgba( $grey,.2 );
+        @media screen and ( max-width: 768px ) {
+            top: initial; bottom: 42%;
+        }
+        @media screen and ( max-width: 375px ) {
+            display: none;
+        }
+    }
+}
+
+.serv-list__item {
+    flex-basis: 30%;
+    @media screen and ( max-width: 768px ) {
+        flex-basis: 50%;
+    }
+    @media screen and ( max-width: 375px ) {
+        flex-basis: 100%;
+    }
+}
+
+.serv-list__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5.75rem;
+    @media screen and ( max-width: 375px ) {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.serv-item__pic {
+    img {
+        max-width: 80%;
+    }
+}
+
+.serv-item__cont {
+    flex: 2;
+    padding: 0 .875rem;
+}
+
+.serv-item__header {
+    margin-bottom: .75rem;
+}
+
+.serv-item__title {
+    font-family: $montserratRegular; font-size: .875rem; 
+    text-transform: uppercase;
+}
+
+.serv-item__body {
+    font-size: .875rem; line-height: 1.5rem;
+    color: $grey;
+}

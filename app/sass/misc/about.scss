@@ -1,0 +1,69 @@
+.about__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4.5rem 0;
+    @media screen and ( max-width: 940px ) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.about-list__item {
+    width: 20.625rem; height: 14.6875rem;
+    background-color: $blue;
+    @media screen and ( max-width: 940px ) {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        } 
+    }
+}
+
+.about-item__bg { 
+    position: relative;
+    height: 100%;
+    transition: all .5s;
+    z-index: 0;
+    
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        display: block;
+        width: 100%; height: 100%;
+        background: url( '../image/about/grad.png' ) no-repeat top / cover;
+        opacity: .9;
+        z-index: -1;
+    }    
+}
+
+.about-item__cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100%;
+    text-align: center;
+    opacity: 0;
+}
+
+.about-list__item {
+    &:hover {
+        .about-item__bg {
+            transform: translate(-5px, -5px);
+        }
+        .about-item__cont {
+            transition: all .5s linear .7s;
+            opacity: 1;    
+        }
+    }
+}
+
+.about-cont__link {
+    display: inline-block;
+    width: 100%;
+    padding: .375rem 0;
+    font-family: $montserratBold; font-size: 1.125rem;
+    text-transform: uppercase;
+    color: $white;
+}
