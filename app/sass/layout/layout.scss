@@ -18,7 +18,7 @@ $robotoLight: 'robotolight_italic';
 
 html, body {
     height: 100%;
-    font-family: $montserratRegular;
+    font-family: $montserratRegular; 
     @media screen and ( max-width: 1024px ) {
         font-size: 15px;
     }
@@ -31,24 +31,22 @@ html, body {
 }
 
 .section {
-    display: flex;
-    min-height: 100%;
+    display: flex;     
+    min-height: 100vh;
 }
 
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    width: 95%;
-    max-width: 75rem;
-    min-height: 100%;
-    margin: auto;
+    width: 95%; max-width: 75rem;
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
 .wrap__cont {
-    max-width: 100%;
-    min-height: 40.625rem;
+    width: 100%;
+    min-height: 650px;
 }
 
 h1,
@@ -58,17 +56,23 @@ h4,
 h5,
 h6 {
     margin: 0;
-    font-family: $montserratBold;
 }
 
 ul {
-    margin: 0;
     padding: 0;
+    margin: 0;
     li {
         list-style: none;
     }
 }
 
+p {
+    margin: 0;
+    font-size: .875rem; line-height: 1.5rem;
+    color: $grey;
+}
+
 a {
     text-decoration: none;
 }
+
