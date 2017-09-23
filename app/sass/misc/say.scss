@@ -21,13 +21,22 @@
 }
 
 .say-list__item {
-    display: flex;
     flex-basis: 48%;
     margin-bottom: 5.75rem;
     @media screen and ( max-width: 480px ) {
         flex-basis: 100%;
         margin-bottom: 2rem;
     }
+}
+
+.say-list__item:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.say-list__item > div {
+    float: left;
 }
 
 .say-item__pic {
@@ -41,7 +50,11 @@
 }
 
 .say-item__cont {
+    width: 75%;
     padding: 0 2rem;
+    @media screen and ( max-width: 1024px ) {
+        width: 70%;
+    }
 }
 
 .say-item__header {
