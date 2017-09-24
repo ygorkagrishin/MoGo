@@ -1,0 +1,56 @@
+.work__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4.5rem 0;
+}
+
+.work-list__item {
+    position: relative;
+    width: 18.75rem; height: 16.25rem;
+    cursor: pointer;
+    z-index: 0;
+    @media screen and ( max-width: 375px ) {
+       width: 28.75rem; height: 24.25rem;
+    }
+}
+
+.work-item__hover:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    width: 100%; height: 100%;
+    background: url( '../image/work/grad.png' ) no-repeat center / cover ;
+    opacity: .9;
+    z-index: -1;
+}
+
+.work-item__hover {
+    display: none;
+}
+
+.work-list__item:hover > .work-item__hover {
+    display: block;
+    height: 100%;
+}
+
+.work-item__cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.work-cont__header {
+    padding: .5rem 0;
+    font-family: $montserratRegular; font-size: .875rem;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.work-cont__body {
+    font-family: $robotoLight; font-size: .9375rem;
+    color: $white;
+}

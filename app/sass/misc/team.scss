@@ -1,0 +1,118 @@
+.team__list {
+    display: flex;
+    justify-content: center;
+    padding: 4.5rem 0;
+}
+
+.team-list__item {
+    position: relative;
+    flex-basis: 30%;
+    min-height: 28.125rem;
+    margin: 0 .75rem;
+    text-align: center;
+    background-color: $blue;
+    @media screen and ( max-width: 768px ) {
+        min-height: 16.125rem;
+        margin: 0 .35rem;
+    }
+    @media screen and ( max-width: 480px ) {
+        flex-basis: 55%;
+    }
+}
+
+.team-item__bg {
+    height: 100%;
+    will-change: transform;
+}
+
+.team-item__hover {
+    position: relative;
+    height: 100%;
+    opacity: 0;
+    will-change: opacity;
+    z-index: 0;
+}
+
+.team-item__hover:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    display: block;
+    width: 100%; height: 100%;
+    background: url( '../image/team/grad.png' ) no-repeat center / cover;
+    opacity: .9;
+    z-index: -1;
+}
+
+.team-item__cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.team-item__social:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.team-item__social {
+    .team-item__social-link {
+        transition: all .5s linear;
+    }
+    .team-item__facebook {
+        background: $yellow url('../image/sprite/social-sprites.png') 12px -38px;
+        &:hover {
+            background: $red url('../image/sprite/social-sprites-hover.png') 12px -38px;
+        }
+    }
+    .team-item__twitter {
+        background: $yellow url('../image/sprite/social-sprites.png') 6px 6px;
+        &:hover {
+            background: $red url('../image/sprite/social-sprites-hover.png') 6px 6px;
+        }
+    }
+    .team-item__pinterest {
+        background: $yellow url('../image/sprite/social-sprites.png') 7px -131px;
+        &:hover {
+            background: $red url('../image/sprite/social-sprites-hover.png') 7px -131px;
+        }
+    }
+    .team-item__instagram {
+        background: $yellow url('../image/sprite/social-sprites.png') 5px -84px;
+        &:hover {
+            background: $red url('../image/sprite/social-sprites-hover.png') 5px -84px;
+        }
+    }
+}
+
+.team-item__social-link {
+    float: left;
+    width: 3.4375rem; height: 3.4375rem;
+    background-color: $yellow;
+}
+
+.team-list__item {
+    &:hover {
+        .team-item__hover {
+            opacity: 1;
+            transition: all .5s linear;
+        }
+        .team-item__bg {
+            transform: translate(-5px,-5px);
+            transition: all .5s linear;
+        }
+    }
+}
+
+.team-item__title {
+    padding: 1.5rem 0 .25rem 0;
+    font-family: $montserratRegular; font-size: .875rem;
+    text-transform: uppercase;
+}
+
+.team-item__name {
+    font-family: $robotoLight; font-size: .9375rem;
+    color: $grey;
+}
