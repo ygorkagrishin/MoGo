@@ -50,11 +50,9 @@
 .serv-list__item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 5.75rem;
+    margin-bottom: 5.75rem; 
     @media screen and ( max-width: 375px ) {
-        &:not(:last-child) {
-            margin-bottom: 2rem;
-        }
+        margin-bottom: 2rem;
     }
 }
 
