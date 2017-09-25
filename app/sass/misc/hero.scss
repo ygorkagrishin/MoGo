@@ -36,7 +36,7 @@
     a {
         font-family: $montserratBold; font-size: 1.875rem;
         color: $white;
-        transition: all .5s;
+        transition: all .5s linear;
         &:hover {
             color: $yellow;
         }
@@ -53,12 +53,9 @@
 .hero-list__item {
     display: inline-block;
     vertical-align: middle;
-}
-
-.hero-list__item {
-    padding: 0 2rem;
+    margin: 0 2rem;
     @media screen and ( max-width: 1024px ) {
-        padding: 0 1.5rem;
+        margin: 0 1.5rem;
     }  
 }
 
@@ -67,7 +64,7 @@
     font-size: .875rem;
     text-transform: uppercase;
     color: $white;
-    transition: all .5s;
+    transition: all .5s linear;
     &:hover {
         padding: .75rem 0;
         border-bottom: .1875rem solid $yellow;
@@ -75,45 +72,57 @@
     }
 }
 
-.hero__menu {
-    display: none; 
+.menu {
+display: none;
+width: 30px; height: 25px;
+margin: 0 .7rem;    
+text-align: center;
     span {
         display: block;
-        width: 20px; height: 3px;
+        width: 25px; height: 5px;
         border-radius: 15px;
-        margin: 3px 0;
-        background-color: rgba( $white,.7 );
-        transition: all .5s;
-    }
-    &:hover {
-        span {
-            background-color: $white;
-        }
+        margin: 3px auto 3px auto;
+        opacity: .7;
+        background-color: $white;
+        will-change: opacity;
+        transition: all .5s linear;
     }
     @media screen and ( max-width: 768px ) {
+        display: block;
+    }
+}
+
+.menu:hover {
+    span {
+        opacity: 1;
+    }
+}
+
+.hero__aside {
+    .hero-aside__link {
         display: inline-block;
-    }
-}
-
-.hero-aside__link {
-    display: inline-block;
-    width: .875rem; height: .875rem;
-    vertical-align: middle;
-    &:not(:last-child) {
-        margin: 0 2rem;
-    }
-}
-
-.hero-aside__link {
-    img {
+        width: 28px; height: 23px;
+        vertical-align: middle;
+        will-change: opacity;
         opacity: .7;
-    }
-
-    &:hover {
-        img {
-            opacity: 1;
+        transition: all .5s linear;
+        &:not(:last-child) {
+            margin: 0 2rem;
+            @media screen and ( max-width: 1024px ) {
+                margin: 0 1.5rem;
+            } 
         }
     }
+    .bg-shopping {
+        background: url( '../image/hero/hero-sprite.png' ) -6px -7px;
+    }
+    .bg-magnifying {
+        background: url( '../image/hero/hero-sprite.png' ) -6px -42px;
+    }
+}
+
+.hero-aside__link:hover {
+    opacity: 1;
 }
 
 .hero__main {
@@ -121,34 +130,22 @@
     text-align: center;
 }
 
-.hero-main__header {    
-    .header__under_title {
-        font-family: $kaushan; font-size: 4.5rem;
-        color: $white;
-        @media screen and ( max-width: 768px ) {
-            font-size: 2.5rem;
-        }
-    }
-    .header__title {
-        padding: 1rem 0;
-        font-family: $montserratBold; font-size: 7.75rem;
-        text-transform: uppercase;
-        color: $white;
-        @media screen and ( max-width: 768px ) {
-            padding: .5rem 0;
-            font-size: 3.75rem;
-        }
+.header-main__under-title {
+    font-family: $kaushan; font-size: 4.5rem;
+    color: $white;
+    @media screen and ( max-width: 768px ) {
+        font-size: 2.5rem;
     }
 }
 
-.hero-main__header {
-    .header {
-        &:after {
-            content: "";
-            display: inline-block;
-            width: 3.75rem; height: .1875rem;
-            background-color: $white;
-        }
+.header-main__title {
+    padding: 1rem 0;
+    font-family: $montserratBold; font-size: 7.75rem;
+    text-transform: uppercase;
+    color: $white;
+    @media screen and ( max-width: 768px ) {
+        padding: .5rem 0;
+        font-size: 3.75rem;
     }
 }
 
@@ -169,7 +166,7 @@
     font-family: $montserratBold; font-size: .875rem;
     text-transform: uppercase;
     color: rgba( $white,.7 );
-    transition: all .5s;
+    transition: all .5s linear;
     &:hover {
         border-color: $white;
         color: $white;
