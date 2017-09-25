@@ -1,7 +1,9 @@
 .header {
-max-width: 64rem;
-margin: auto;
-text-align: center;    
+    .wrap__header {
+        max-width: 64rem;
+        margin: auto;
+        text-align: center;
+    }    
     .header__under-title {
         font-family: $kaushan; font-size: 1.5rem;
         padding: 1.5rem 0;
@@ -18,5 +20,3 @@ text-align: center;
         }
     }
 }
-
-/* Переделать элемент таким образом что бы он был независим от флекса */

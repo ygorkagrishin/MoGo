@@ -2,6 +2,10 @@
     display: flex;
     justify-content: center;
     padding: 4.5rem 0;
+    @media screen and ( max-width: 480px ) {
+        flex-direction: column;
+        align-items: center;
+    }  
 }
 
 .team-list__item {
@@ -13,7 +17,8 @@
         margin: 0 .35rem;
     }
     @media screen and ( max-width: 480px ) {
-        width: 55%;
+        width: 85%;
+        margin-bottom: 32px;
     }
 }
 
@@ -60,7 +65,7 @@
 
 .team-item__social-link {
     float: left;
-    width: 3.4375rem; height: 3.4375rem;
+    width: 50px; height: 50px;
     background-color: $yellow;
 }
 
@@ -69,9 +74,9 @@
         transition: all .5s linear;
     }
     .team-item__facebook {
-        background: $yellow url('../image/sprite/social-sprites.png') 12px -38px;
+        background: $yellow url('../image/sprite/social-sprites.png') 10px -38px;
         &:hover {
-            background: $red url('../image/sprite/social-sprites-hover.png') 12px -38px;
+            background: $red url('../image/sprite/social-sprites-hover.png') 10px -38px;
         }
     }
     .team-item__twitter {
