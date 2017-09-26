@@ -49,6 +49,25 @@
     overflow: hidden;
 }
 
+.say__list {
+    .say-list__item:nth-child(1)
+    .say-item__ava {
+        transform: translate(-30%, -4%);
+    }
+    .say-list__item:nth-child(2)
+    .say-item__ava {
+        transform: translate(-31%, -35%);
+    }
+    .say-list__item:nth-child(3)
+    .say-item__ava {
+        transform: translate(-26%, -10%);
+    }
+    .say-list__item:nth-child(4)
+    .say-item__ava {
+        transform: translate(-21%, -6%);
+    }
+}
+
 .say-item__cont {
     width: 75%;
     padding: 0 2rem;
