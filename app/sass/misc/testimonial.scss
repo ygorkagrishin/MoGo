@@ -1,0 +1,59 @@
+.test__carousel {
+    position: relative;
+    max-width: 61.875rem;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.test-carousel__wrap {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.test-carousel__active {
+    transition: all 1s linear;
+}
+
+.test-carousel__slide {
+    float: left;
+}
+
+.test-carousel__slide {
+    & > div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.test-slide__img {
+    margin-right: 2rem;
+}
+
+.test-slide__img-wrap {
+    display: inline-block;
+    width: 13.25rem; height: 13.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.test-slide__pic {
+    max-width: 100%;
+    transform: scale( 2 );
+}
+
+.test-slide__cont {
+    width: 65%;
+}
+
+.test-cont__comm {
+    padding: 1rem 0;
+    font-family: $robotoLight; font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.test-cont__author {
+    font-family: $kaushan; font-size: 1.5rem;
+}
