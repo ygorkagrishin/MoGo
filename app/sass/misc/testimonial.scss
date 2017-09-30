@@ -1,6 +1,6 @@
 .test-container__carousel {
     position: relative;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: auto;
 }
 
@@ -15,9 +15,9 @@
 }
 
 .test-carousel__wrap {
-display: flex;
-transition: all .5s;   
-will-change: transform;
+    display: flex;
+    transition: all .5s;   
+    will-change: transform;
 }
 
 .test-carousel__no-active {
@@ -72,9 +72,9 @@ will-change: transform;
 }
 
 .test-carousel__arrow {
-position: absolute;    
-top: 45%;
-z-index: 0;
+    position: absolute;    
+    top: 45%;
+    z-index: 0;
     & > img {
         cursor: pointer;
         z-index: 1;
