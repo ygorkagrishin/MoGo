@@ -1,40 +1,53 @@
-.test__carousel {
+.test-container__carousel {
     position: relative;
-    max-width: 61.875rem;
+    max-width: 1200px;
     margin: auto;
-    overflow-x: hidden;
 }
 
-.test-carousel__wrap {
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
+.test__carousel {
+    max-width: 75%;
+    padding: 2rem 0;
+    margin: auto;
+    overflow-x: hidden;
+    @media screen and ( max-width: 480px ) {
+        max-width: 95%;
     }
 }
 
-.test-carousel__active {
-    transition: all 1s linear;
+.test-carousel__wrap {
+display: flex;
+transition: all .5s;   
+will-change: transform;
+}
+
+.test-carousel__no-active {
+    transition: initial;
 }
 
 .test-carousel__slide {
-    float: left;
+    flex: 0 0 100%;
+    will-change: opacity;
 }
 
 .test-carousel__slide {
-    & > div {
-        display: inline-block;
-        vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and ( max-width: 480px ) {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
 .test-slide__img {
     margin-right: 2rem;
+    @media screen and ( max-width: 480px ) {
+        margin: 0;
+    }
 }
 
 .test-slide__img-wrap {
-    display: inline-block;
-    width: 13.25rem; height: 13.25rem;
+    width: 10.25rem; height: 10.25rem;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -50,10 +63,29 @@
 
 .test-cont__comm {
     padding: 1rem 0;
-    font-family: $robotoLight; font-size: 1.5rem;
-    line-height: 2rem;
+    font-family: $robotoLight; font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 .test-cont__author {
     font-family: $kaushan; font-size: 1.5rem;
+}
+
+.test-carousel__arrow {
+position: absolute;    
+top: 45%;
+z-index: 0;
+    & > img {
+        cursor: pointer;
+        z-index: 1;
+    }
+}
+
+
+.test-carousel__arrow-left {
+    left: 5%;
+}
+
+.test-carousel__arrow-right {
+    right: 5%;
 }

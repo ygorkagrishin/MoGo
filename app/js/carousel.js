@@ -1,48 +1,57 @@
-function Carousel( param ) {
+"use strict";
 
-var param = param;
+function Carousel( settings ) {
 
-var sel = {
+var privates = {};
 
-    'carousel' : document.querySelector( param.carousel ),
-    'wrap' : document.querySelector( param.wrap ),
-    'slides' : document.querySelectorAll( param.slide ),
-    'slide' : document.querySelector( param.slide ),
-    'children' : document.querySelector( param.wrap ).children,
-    'prev' : document.querySelector( param.prev ),
-    'next' : document.querySelector( param.next )
+privates.settings = settings;
+
+privates.sel = {
+
+    'carousel' : document.querySelector( privates.settings.carousel ),
+    'wrap' : document.querySelector( privates.settings.wrap ),
+    'children' : document.querySelector( privates.settings.wrap ).children,
+    'prev' : document.querySelector( privates.settings.prev ),
+    'next' : document.querySelector( privates.settings.next ) 
 
     }
 
-var opt = {
+privates.opt = {
 
     'position' : 0,
-    'max__position' : document.querySelector( param.wrap ).children
+    'max_position' : document.querySelector( privates.settings.wrap ).children.length
 
     }
     
-var init = function () {
+privates.sel.prev.addEventListener( 'click', function () {
 
-var totalAmount = 0;
+    --privates.opt.position;
+
+    if ( privates.opt.position < 0 ) {
+        privates.opt.position = privates.opt.max_position - 1;   }
     
-for ( var s=0; s<=sel.slides.length - 1; s++ ) {
-    totalAmount += sel.slides[s].offsetWidth;
-    sel.slides[s].style.width = sel.carousel.offsetWidth + 'px'; }
+    privates.sel.wrap.style.transform = 'translateX( -' + privates.opt.position + '00% )';
 
-    sel.wrap.style.width = totalAmount + 'px';
+    });  
 
-    };    
+privates.sel.next.addEventListener( 'click', function () {
 
-init(); 
-   
+    ++privates.opt.position;
+
+    if ( privates.opt.position >= privates.opt.max_position ) {
+        privates.opt.position = 0;   }
+
+    privates.sel.wrap.style.transform = 'translateX( -' + privates.opt.position + '00% )';
+
+    });     
+
 };
 
 var carousel = new Carousel({
 
     'carousel' : '.test__carousel',
     'wrap' : '.test-carousel__wrap',
-    'slide' : '.test-carousel__slide',
-    'prev' : '.test-carousel__arrow-left',
-    'next' : '.test-carousel__arrow-right'
+    'prev' : '.test-arrow__left',
+    'next' : '.test-arrow__right'
 
 });
