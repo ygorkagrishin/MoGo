@@ -15,9 +15,13 @@
 }
 
 .test-carousel__wrap {
-    display: flex;
-    transition: all .5s;   
+    display: flex;  
+    transition: transform 1s;
     will-change: transform;
+}
+
+.test-carousel__no-active {
+    transition: initial !important;
 }
 
 .test-carousel__no-active {

@@ -8,48 +8,64 @@ privates.settings = settings;
 
 privates.sel = {
 
-    'carousel' : document.querySelector( privates.settings.carousel ),
     'wrap' : document.querySelector( privates.settings.wrap ),
-    'children' : document.querySelector( privates.settings.wrap ).children,
     'prev' : document.querySelector( privates.settings.prev ),
-    'next' : document.querySelector( privates.settings.next ) 
+    'next' : document.querySelector( privates.settings.next )
 
-    }
+    };
 
-privates.opt = {
+privates.position = {
 
-    'position' : 0,
-    'max_position' : document.querySelector( privates.settings.wrap ).children.length
+    'current_position' : 0,
+    'max_position' : privates.sel.wrap.children.length
 
-    }
+    };
+
+this.prev_slide = function () {
+
+    --privates.position.current_position;
+
+    if ( privates.position.current_position < 0 ) {
+    privates.sel.wrap.classList.add( 'test-carousel__no-active' );    
+    privates.position.current_position = privates.position.max_position;
+    setTimeout( function (){
+
+    privates.sel.wrap.classList.remove( 'test-carousel__no-active' );    
+    privates.position.current_position = privates.position.max_position - 1;
+    privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
+
+    }, 20);  }
     
-privates.sel.prev.addEventListener( 'click', function () {
+    privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
-    --privates.opt.position;
+    }; 
 
-    if ( privates.opt.position < 0 ) {
-        privates.opt.position = privates.opt.max_position - 1;   }
+this.next_slide = function () {
+
+    ++privates.position.current_position;
+
+    if ( privates.position.current_position > privates.position.max_position - 1) {
+
+    setTimeout( function () {
     
-    privates.sel.wrap.style.transform = 'translateX( -' + privates.opt.position + '00% )';
+    privates.position.current_position = 0;
+    privates.sel.wrap.classList.add( 'test-carousel__no-active' );
+    privates.sel.wrap.style.transform = 'translateX(' + privates.position.current_position + '00%)';
 
-    });  
+    }, 500); }
+    privates.sel.wrap.classList.remove( 'test-carousel__no-active' );
+    privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
-privates.sel.next.addEventListener( 'click', function () {
+    };
 
-    ++privates.opt.position;
+privates.sel.prev.addEventListener( 'click', this.prev_slide);
 
-    if ( privates.opt.position >= privates.opt.max_position ) {
-        privates.opt.position = 0;   }
-
-    privates.sel.wrap.style.transform = 'translateX( -' + privates.opt.position + '00% )';
-
-    });     
+privates.sel.next.addEventListener( 'click', this.next_slide);
 
 };
 
 var carousel = new Carousel({
 
-    'carousel' : '.test__carousel',
     'wrap' : '.test-carousel__wrap',
     'prev' : '.test-arrow__left',
     'next' : '.test-arrow__right'
