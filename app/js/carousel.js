@@ -57,30 +57,27 @@ privates.default = {
 
 }
 
+privates.sel.wrap.appendChild( privates.sel.wrap.children[0].cloneNode( true ) );
+
 that.prev_slide = function () {
 
     --privates.position.current_position;
 
     privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
-    if ( privates.position.current_position < 0 ) {
-      
-    privates.sel.wrap.style.transform = 'translateX(100%)';
-    
-    setTimeout( function () {
+    if ( privates.position.current_position < 0 )  {
 
-    privates.sel.wrap.classList.add( 'test-carousel__no-active' );     
+    privates.sel.wrap.classList.add( 'test-carousel__no-active' );
     privates.position.current_position = privates.position.max_position;
     privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
     setTimeout( function () {
-    privates.sel.wrap.classList.remove( 'test-carousel__no-active' );     
+
+    privates.sel.wrap.classList.remove( 'test-carousel__no-active' );
     privates.position.current_position = privates.position.max_position - 1;
     privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
-            }, 20);
-
-        }, 500)
+        }, 20);
 
     }
 
@@ -89,27 +86,23 @@ that.prev_slide = function () {
 that.next_slide = function () {
 
     ++privates.position.current_position;
-
+    
     privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
-    if ( privates.position.current_position >= privates.position.max_position ) {
+    if ( privates.position.current_position > privates.position.max_position ) {
+
+    privates.sel.wrap.classList.add( 'test-carousel__no-active' );
+    privates.position.current_position = 0;
+    privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
 
     setTimeout( function () {
+    ++privates.position.current_position;    
+    privates.sel.wrap.classList.remove( 'test-carousel__no-active' );
+    privates.sel.wrap.style.transform = 'translateX(-' + privates.position.current_position + '00%)';
+        }, 20);
 
-        privates.sel.wrap.classList.add( 'test-carousel__no-active' );
-        privates.position.current_position = 0;    
-        privates.sel.wrap.style.transform = 'translateX(100%)';
+    } 
 
-        setTimeout( function () {
-
-        privates.sel.wrap.classList.remove( 'test-carousel__no-active' ); 
-        privates.sel.wrap.style.transform = 'translateX(' + privates.position.current_position + '00%)';
-
-            }, 20);
-
-        }, 500);
-
-    }
 }
 
 privates.sel.carousel.addEventListener( 'touchstart', function (e) {
