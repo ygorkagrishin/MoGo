@@ -5,19 +5,27 @@ function Timer( callback, delay ) {
 var that = this, timerID, start, remaining = delay;
 that.resume = function () {
     
-        start = new Date();
-        timerID = setTimeout( function () {
+    start = new Date();
+    timerID = setTimeout( function () {
 
-        that.resume();
-        callback();
+    that.resume();
+    callback();
     
-        }, remaining);
-
-    }
-
-that.resume();
+    }, remaining);
 
 }
+
+that.clear = function () {
+
+    clearTimeout( timerID );
+
+}  
+
+    that.resume();
+
+}
+
+
 
 function Carousel( settings ) {
 
@@ -50,14 +58,13 @@ privates.direction = {
 
 }
 
-privates.default = {
+privates.autoplay_delay = 3000;
 
-    'autoplay' : true,
-    'autoplay_delay' : 3000
-
-}
+// Clone node
 
 privates.sel.wrap.appendChild( privates.sel.wrap.children[0].cloneNode( true ) );
+
+// Prev slide
 
 that.prev_slide = function () {
 
@@ -81,7 +88,11 @@ that.prev_slide = function () {
 
     }
 
+    privates.timer.clear();
+
 }
+
+// Next slide
 
 that.next_slide = function () {
 
@@ -105,10 +116,14 @@ that.next_slide = function () {
 
 }
 
+// Touch event
+
 privates.sel.carousel.addEventListener( 'touchstart', function (e) {
     e.preventDefault();
 
     privates.direction.current_directX = e.changedTouches[0].screenX, privates.direction.current_directY = e.changedTouches[0].screenY;
+
+    privates.timer.clear();
 
 });
 
@@ -119,7 +134,17 @@ privates.sel.carousel.addEventListener( 'touchend', function (e) {
 
     privates.direction.current_directX > privates.direction.final_directX ?
     that.next_slide() : that.prev_slide();
+        
+    privates.timer.clear();
 
+});
+
+// Autoplay
+
+privates.timer = new Timer( that.next_slide, privates.autoplay_delay );
+
+privates.sel.next.addEventListener( 'click', function () {  
+    privates.timer.clear();
 });
 
 privates.sel.prev.addEventListener( 'click', that.prev_slide);
