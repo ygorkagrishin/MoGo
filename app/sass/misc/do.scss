@@ -1,0 +1,43 @@
+.acco__wrap
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.acco 
+{
+    width: 45%;
+    border: 1px solid rgba( $grey,.2 );
+} 
+
+.acco-sect__header
+{
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba( $grey,.2 );
+    cursor: pointer;
+}
+
+.acco-sect__title 
+{
+    font-family: $montserratRegular; font-size: 14px;
+    text-transform: uppercase;
+}
+
+.acco-sect__cont
+{
+    height: 0px;
+    transition: all .3s;
+    overflow: hidden;
+}
+
+.acco-cont__view
+{
+    height: 100px;
+    overflow: hidden ;
+} 
+
+.acco-cont__text
+{
+    font-family: $robotoLight;
+}

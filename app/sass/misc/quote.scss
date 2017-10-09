@@ -1,10 +1,12 @@
-.test-container__carousel {
+.quote__container  
+{
     position: relative;
     max-width: 75rem;
     margin: auto;
 }
 
-.test__carousel {
+.quote__carousel 
+{
     max-width: 75%;
     padding: 4rem 0;
     margin: auto;
@@ -14,22 +16,26 @@
     }
 }
 
-.test-carousel__wrap {
+.quote-carousel__wrap 
+{
     display: flex;  
     transition: transform 1s;
     will-change: transform;
 }
 
-.test-carousel__no-active {
+.quote-carousel__no_active 
+{
     transition: initial !important;
 }
 
-.test-carousel__slide {
+.quote-carousel__slide 
+{
     flex: 0 0 100%;
     will-change: opacity;
 }
 
-.test-carousel__slide {
+.quote-carousel__slide 
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,39 +45,35 @@
     }
 }
 
-.test-slide__img {
-    margin-right: 2rem;
+.quote-slide__figure 
+{
+    padding: 32px 32px 28px 32px;
+    border: 3px solid $blue;
+}
+
+.quote-slide__cont 
+{
+    width: 65%;
+    margin-left: 2rem;
     @media screen and ( max-width: 480px ) {
         margin: 0;
     }
 }
 
-.test-slide__img-wrap {
-    width: 10.25rem; height: 10.25rem;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.test-slide__pic {
-    max-width: 100%;
-    transform: scale( 2 );
-}
-
-.test-slide__cont {
-    width: 65%;
-}
-
-.test-cont__comm {
+.quote-slide__comm 
+{
     padding: 1rem 0;
     font-family: $robotoLight; font-size: 1rem;
     line-height: 1.5rem;
 }
 
-.test-cont__author {
+.quote-slide__author 
+{
     font-family: $kaushan; font-size: 1.5rem;
 }
 
-.test-carousel__arrow {
+.quote-carousel__arrow 
+{
     position: absolute;    
     top: 45%;
     z-index: 0;
@@ -82,10 +84,12 @@
 }
 
 
-.test-carousel__arrow-left {
+.quote-carousel__arrow-left 
+{
     left: 5%;
 }
 
-.test-carousel__arrow-right {
+.quote-carousel__arrow-right 
+{
     right: 5%;
 }

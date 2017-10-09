@@ -1,5 +1,3 @@
-"use strict";
-
 function Timer( callback, delay ) {
 
 var that = this, timerID, start, remaining = delay;
@@ -152,7 +150,7 @@ privates.sel.next.addEventListener( 'click', that.next_slide);
 
 };
 
-var carousel = new Carousel({
+/* var testimonial = new Carousel({
 
     'carousel' : '.test__carousel',
     'wrap' : '.test-carousel__wrap',
@@ -160,3 +158,12 @@ var carousel = new Carousel({
     'next' : '.test-arrow__right'
 
 });
+
+var quote = new Carousel({
+
+    'carousel' : '.quote__carousel',
+    'wrap' : '.quote-carousel__wrap',
+    'prev' : '.quote-arrow__left',
+    'next' : '.quote-arrow__right'
+
+}); */
