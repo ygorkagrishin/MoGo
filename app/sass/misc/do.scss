@@ -1,21 +1,26 @@
-.acco__wrap
-{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
 .acco 
 {
+    float: right;
     width: 45%;
-    border: 1px solid rgba( $grey,.2 );
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 } 
 
 .acco-sect__header
 {
+    display: flex;
+    align-items: center;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba( $grey,.2 );
+    border: 1px solid rgba( $grey,.2 );
     cursor: pointer;
+}
+
+.acco-header__pic
+{
+    margin: 0 1rem;
 }
 
 .acco-sect__title 
@@ -24,16 +29,34 @@
     text-transform: uppercase;
 }
 
+.acco-header__arrow 
+{
+    transition: transform .3s;
+}
+
+.acco-header__arrow_active
+{
+    transform: rotate( 180deg );
+}
+
 .acco-sect__cont
 {
     height: 0px;
+    margin-bottom: 1rem;
     transition: all .3s;
     overflow: hidden;
 }
 
+.acco-sect__cont_active 
+{
+    border: 1px solid rgba( $grey,.2 );
+    border-top: none;
+}
+
 .acco-cont__view
 {
-    height: 100px;
+    height: 170px;
+    padding: 12px 32px 12px 4px;
     overflow: hidden ;
 } 
 
