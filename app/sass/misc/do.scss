@@ -1,66 +1,119 @@
-.acco 
-{
-    float: right;
-    width: 45%;
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-} 
-
-.acco-sect__header
+.acco
 {
     display: flex;
-    align-items: center;
-    padding: 1rem 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 0;
+    @media screen and ( max-width: 768px ) {
+        flex-wrap: wrap;
+    }
+}
+
+.acco__col
+{
+    width: 45%;
+    @media screen and ( max-width: 768px ) {
+        width: 100%;
+    }
+}
+
+.acco__sect 
+{
+    padding: 0 .875rem;
     border: 1px solid rgba( $grey,.2 );
+    margin-bottom: 1rem;
+}
+
+.acco-header__inner {
+    display: flex;
+    align-items: center;
+    padding: .875rem 0;
     cursor: pointer;
 }
 
-.acco-header__pic
+.acco-sect__cont
 {
-    margin: 0 1rem;
+    width: 90%;
 }
 
-.acco-sect__title 
-{
-    font-family: $montserratRegular; font-size: 14px;
-    text-transform: uppercase;
-}
-
-.acco-header__arrow 
-{
+.acco-header__arrow {
     transition: transform .3s;
 }
 
 .acco-header__arrow_active
 {
-    transform: rotate( 180deg );
+    transform: rotate(180deg);
 }
 
-.acco-sect__cont
+.acco-sect__title 
+{   
+    flex: 2;
+    padding: 0 .875rem;
+    font-size: .875rem;
+    text-transform: uppercase;
+}
+
+.acco-sect__body
 {
-    height: 0px;
-    margin-bottom: 1rem;
+    height: 0;
     transition: all .3s;
     overflow: hidden;
 }
 
-.acco-sect__cont_active 
+.acco-sect__inner
 {
-    border: 1px solid rgba( $grey,.2 );
-    border-top: none;
+    padding: 1rem 0;
 }
 
-.acco-cont__view
+.acco-sect__cont
 {
-    height: 170px;
-    padding: 12px 32px 12px 4px;
-    overflow: hidden ;
-} 
+    position: relative;
+    height: 6.875rem;
+    overflow: hidden;
+}
 
-.acco-cont__text
+.acco-sect__scroll
 {
-    font-family: $robotoLight;
+    display: none;
+    position: absolute;
+    top: 0; right: 3%;
+    width: 4px; height: 70%;
+    border-radius: 15px;
+    background-color: rgba( $grey,.5 );
+}
+
+.acco-scroll__bar
+{   
+    width: 100%; height: 35%;
+    border-radius: 15px;
+    background-color: $blue;
+}
+
+.acco__pic 
+{
+    order: -1;
+    position: relative;
+    height: 400px;
+    margin-right: 1rem;
+    overflow: hidden;
+    @media screen and ( max-width: 768px ) {
+        margin: 0 0 1rem 0;
+    }
+    @media screen and ( max-width: 425px ) {
+        height: 220px;
+    }
+}
+
+.acco-sect__image
+{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    opacity: 0;
+}
+
+.acco-sect__image_active
+{
+    opacity: 1;
+    transition: all 1.5s;
 }

@@ -7,87 +7,96 @@ var privates = {};
 privates.param = param;
 
 privates.sel = {
-
+    
     'acco' : document.querySelector( privates.param.acco ),
+    'section' : document.querySelectorAll( privates.param.section ),
     'header' : document.querySelectorAll( privates.param.header ),
-    'arrow' : document.querySelectorAll( privates.param.arrow ),
-    'port' : document.querySelector( privates.param.port )
+    'inner' : document.querySelector( privates.param.inner ),
+    'image' : document.querySelectorAll( privates.param.image )
 
     }
 
-privates.opt = {
+privates.direction = {
 
-    'port_height' : window.getComputedStyle( privates.sel.port ).height
+    'startDirectionY' : 0,
+    'finalDirectinoY' : 0
 
-}
+    }
 
-privates.direct = {
-    
-    'init_directY' : 0,
-    'final_directY' : 0
+// header image default 
 
-}
+that.imageDefault = function () {
 
-// close
+    for ( var i = 0; i <= privates.sel.image.length - 1; i++ ) 
+        privates.sel.image[i].classList.remove( 'acco-sect__image_active' );      
+
+};
+
+// section body close
 
 that.close = function () {
 
-    for ( var s = 0; s <= privates.sel.header.length - 1; s++ ){
-    var elem = privates.sel.header[s];
+    for ( var c = 0; c <= privates.sel.section.length - 1; c++ ) {
+    privates.sel.section[c].classList.remove( "acco__sect_active" );
+    privates.sel.section[c].getElementsByClassName( "acco-header__arrow" )[0].classList.remove( "acco-header__arrow_active" );
+    privates.sel.section[c].getElementsByClassName( "acco-sect__body" )[0].style.height = null;    }
 
-    privates.sel.header[s].classList.remove( 'acco-sect__header_active' );
-    privates.sel.header[s].nextElementSibling.style.height = null;
+};
 
-    privates.sel.header[s].getElementsByClassName( 'acco-header__arrow' )[0].classList.remove( 'acco-header__arrow_active' );  }
-
-}
-
-// open
+// section body open
 
 that.open = function () {
-    var arrow = this.getElementsByClassName( 'acco-header__arrow' );
+
+    var parentNode = this.parentNode,
+        sectArrow = parentNode.getElementsByClassName( "acco-header__arrow" )[0],
+        sectBody = parentNode.getElementsByClassName( "acco-sect__body" )[0],
+        getStyle = window.getComputedStyle( privates.sel.inner ).height,
+        targetImage = parentNode.getAttribute( "data-target" ),
+        getImage = document.querySelector( targetImage );
+
+    if ( !parentNode.classList.contains( "acco__sect_active" ) ) {
+    that.close();
+    that.imageDefault();
     
-    if ( !this.classList.contains( 'acco-sect__header_active' ) ) { 
-        that.close();
-
-        for ( var a = 0; a <= arrow.length - 1; a++ ) {
-        arrow[a].classList.add( 'acco-header__arrow_active' );    }
-
-        this.classList.add( 'acco-sect__header_active' );
-        this.nextElementSibling.style.height = privates.opt.port_height;    }
+    getImage.classList.add( "acco-sect__image_active" );    
+    parentNode.classList.add( "acco__sect_active" );
+    sectArrow.classList.add( "acco-header__arrow_active" );
+    sectBody.style.height = getStyle;    }
     else {
-        that.close();    }   
-        
-}
+    that.close();   }
+
+};
 
 // add event
 
-for ( var e = 0; e <= privates.sel.header.length - 1; e++ ) 
-    privates.sel.header[e].addEventListener( 'click', that.open );
+for ( var e = 0; e <= privates.sel.header.length - 1; e++ )
+    privates.sel.header[e].addEventListener( 'click', that.open);
 
-// touch event
+// touch event 
 
-privates.sel.acco.addEventListener( 'touchstart', function ( e ) {
+privates.sel.acco.addEventListener( 'touchstart', function (e) {
 
-    privates.direct.init_directY = e.changedTouches[0].screenY;  
-
-});
-
-privates.sel.acco.addEventListener( 'touchend', function ( e ) {
-
-    privates.direct.final_directY = e.changedTouches[0].screenY;
-
-    if ( privates.direct.init_directY > privates.direct.final_directY ) that.close();    
+    privates.direction.startDirectionY = e.changedTouches[0].screenY;
 
 });
 
-}
+privates.sel.acco.addEventListener( 'touchend', function (e) {
+
+    privates.direction.finalDirectionY = e.changedTouches[0].screenY;
+
+    if ( privates.direction.startDirectionY > privates.direction.finalDirectionY  ) that.close();
+
+});
+
+};
 
 var acco = new Acco({
 
-    'acco' : '.acco',
+    'acco' : '.acco__acco',
+    'section' : '.acco__sect',
     'header' : '.acco-sect__header',
-    'arrow' : '.acco-header__arrow',
-    'port' : '.acco-cont__view'
-
+    'inner' : '.acco-sect__inner',
+    'image' : '.acco-sect__image'
+ 
 });
+
